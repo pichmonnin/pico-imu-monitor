@@ -181,21 +181,21 @@ void print_SI_IMU(const uint8_t *buf12){
     auto raw_data = gather_data(buf12);
     auto dps_data = RawDataToDPSData(raw_data);
     auto si_data = DPSDataToSIData(dps_data);
-            std::cout << "\r" << "Accel :" << std::fixed  << std::setprecision(2) 
-                << std::setw(7) <<"(X) :"<< si_data.accel_si_x  << " "
-                << std::setw(7) <<"(Y) :"<< si_data.accel_si_y << " "
-                << std::setw(7) <<"(Z) :"<< si_data.accel_si_z << " | "
-                <<"Gyro : "
-                << std::setw(7) << "(X) :"<< si_data.gyro_si_x <<  " "
-                << std::setw(7) << "(Y) :"<< si_data.gyro_si_y << " "
-                << std::setw(7) << "(Z) :"<< si_data.gyro_si_z 
-                << "      " << std::flush; 
+    std::cout << "\rA:"
+          << std::fixed << std::setprecision(2)
+          << std::setw(7) << si_data.accel_si_x << " "
+          << std::setw(7) << si_data.accel_si_y << " "
+          << std::setw(7) << si_data.accel_si_z << " | G:"
+          << std::setw(7) << si_data.gyro_si_x << " "
+          << std::setw(7) << si_data.gyro_si_y << " "
+          << std::setw(7) << si_data.gyro_si_z
+          << "      " << std::flush;
 }
 void print_menu(){
     printf(MENU_CLEAR);
     printf("=== PICO CONTROL MENU ===\r\n");
     printf("1. Show sensor data\r\n");
-    printf("q. Quit to menu\r\n");
+    printf("m. Back to Main Menu\r\n");
     printf("========================\r\n");
     printf("Select option: ");
 }
@@ -274,7 +274,7 @@ int main(){
             if (cmd =='1'){
                 show_sensor = true;
             }
-            if (cmd =='q' || cmd == 'Q'){
+            if (cmd =='m' || cmd == 'M'){
                 show_sensor = false;
                 print_menu();
             }
