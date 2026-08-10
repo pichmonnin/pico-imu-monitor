@@ -75,7 +75,7 @@ lsusb | grep "RP2350"
 # Expected: Bus XXX Device XXX: ID 2e8a:000f Raspberry Pi RP2350 Boot
 
 # Flash and reboot
-picotool load build/pico-imu-monitor.elf
+picotool load build/app.elf
 picotool reboot
 ```
 
