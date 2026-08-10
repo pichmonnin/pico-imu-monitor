@@ -96,3 +96,5 @@ picotool reboot
 
 ## Video of demonstration
 
+
+https://github.com/user-attachments/assets/122f06e0-afa9-4eee-8c4c-5f12174d2a91
